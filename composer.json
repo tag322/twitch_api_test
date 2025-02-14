@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Huilo\\TwitchApiTest\\": "src/",
+            "App\\Routing\\": "app/Routing",
+            "App\\Database\\": "app/Database"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
+    }
+}

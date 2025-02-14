@@ -1,0 +1,40 @@
+.custom-twitch-btn {
+    background-color: #9146FF !important;
+    border-color: #772ce8 !important;
+}
+
+.custom-twitch-btn:hover {
+    background-color: #7c3cdb !important;
+    border-color: #772ce8 !important;
+}
+
+#form_message {
+    transition: all 1s ease-out;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.json-key {
+    color: #d14;
+}
+
+.json-value {
+    color: #099;
+}
+
+.scrollable-field {
+    max-height: 100px;
+    overflow-y: auto; 
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 5px;
+}

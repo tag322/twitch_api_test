@@ -14,13 +14,22 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Twitch API Test</a>
+            <div class="d-flex">
+                <a class="btn btn-outline-light me-2" href="/main">Вернуться на главную</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="border p-3 bg-light rounded align-self-center">
-            <span>Ваш токен:</span>
-            <span id="access_token"></span>
-            <input type="text" class="form-control mt-4" id="nickname_field" placeholder="Введите отображаемое имя">
+            <!-- <span>Ваш токен:</span>
+            <span id="access_token"></span> -->
+            <input type="text" class="form-control" id="nickname_field" placeholder="Введите отображаемое имя">
             <div class="opacity-0" id="form_message">test</div>
-            <div class="d-flex justify-content-center mt-1 mb-4">
+            <div class="d-flex justify-content-center mb-1 mt-1">
                 <button class="btn btn-primary custom-twitch-btn" id="fetchData">Получить данные о пользователе</button>
             </div>
             <div id="json-container" class="json-container">
@@ -32,9 +41,12 @@
 </body>
 </html>
 
-<script>
-    const params = new URLSearchParams(window.location.hash.substring(1))
-    document.getElementById("access_token").innerHTML = params.get('access_token')
+<script type="module">
+    import { setCookie, getCookie } from "../../src/js/aboba.js";
+
+    const access_token = getCookie('access_token')
+    const user_id = getCookie('user_id')
+    const client_id = "<?php echo $env["TWITCH_CLIENT_ID"]?>"
 
     function formatJson(data) {
         const container = document.getElementById('json-container');
@@ -91,8 +103,8 @@
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + params.get('access_token'),
-                'Client-Id': 'woux9nne4qrs1bboosfsp00xjm0nyk'
+                'Authorization': 'Bearer ' + access_token,
+                'Client-Id': client_id
             },
         };
 
@@ -104,9 +116,10 @@
             return error
         });
 
-        data = (await response.json()).data[0]
+        const data = (await response.json()).data[0]
 
         formatJson(data);
-        storeDataInDB(data)
+        storeDataInDB(data);
     })
+
 </script>

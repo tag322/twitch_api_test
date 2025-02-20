@@ -6,7 +6,10 @@ use App\Routing\Router;
 
 $routes = [
     '/' => 'index',
-    '/redirect' => 'redirect',
+    '/main' => 'main',
+    '/redirect_access_token' => 'redirectAccessToken',
+    '/retrieve_user_info' => 'retrieveUserInfo',
+    '/retrieve_chat' => 'retrieveChat',
     '/api/store_user_info' => 'API_storeUserInfo'
 ];
 

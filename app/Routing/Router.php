@@ -26,13 +26,43 @@ class Router {
         return $content;
     }
 
-    function redirect() {
+    function main() {
+        ob_start();
+
+        include 'app/Pages/main.php';
+
+        $content = ob_get_clean();
+
+        return $content;
+    }
+
+    function retrieveUserInfo() {
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         file_put_contents('logs/paths.txt', $path."\n", FILE_APPEND);
 
         ob_start();
 
-        include 'app/Pages/redirect.php';
+        include 'app/Pages/retrieveUserInfo.php';
+
+        $content = ob_get_clean();
+
+        return $content;
+    }
+
+    function retrieveChat() {
+        ob_start();
+
+        include 'app/Pages/retrieveChat.php';
+
+        $content = ob_get_clean();
+
+        return $content;
+    }
+
+    function redirectAccessToken() {
+        ob_start();
+
+        include 'app/Pages/redirectAccessToken.php';
 
         $content = ob_get_clean();
 

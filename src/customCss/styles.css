@@ -38,3 +38,22 @@ pre {
     border-radius: 3px;
     margin-top: 5px;
 }
+
+#chat-container {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background: #f8f9fa;
+}
+.chat-message {
+    padding: 5px;
+}
+.chat-message:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+#content {
+    min-width: 50%;
+}
